@@ -1,0 +1,74 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="=XGbvvXG-g61FV6aAh`t">Player</variable><variable type="KIND_SpriteKind" id="`xUlCV3a~NaY*z__j8%a">Projectile</variable><variable type="KIND_SpriteKind" id="EDK6ey@lJ5_xqL?x501Z">Food</variable><variable type="KIND_SpriteKind" id="dO`MAEQ^]O,G}}.ypcr-">Enemy</variable><variable type="BLOCKLY_TILESET_TYPE" id="b@MEflsj+2ZvbE@cC*p{">0;16;16;0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</variable><variable id="OrVfNoUO9A^HJbPxTTj~">infected</variable><variable id="*_8|kQFI@D#?buZP@)`^">speed</variable><variable id="T*]g|{o1*Z#X(F?/Hcf9">healthy</variable><variable id="093-H7B?D3(k,mS++Ahl">index</variable><variable id="rGJ`Vc*vqZDY(s]Ch)M.">mySprite</variable><variable id="NS^=)AQOkvj~,4JP(D7o">otherSprite</variable><variable id="S;x-:.TJ#]`JnDx^mL3a">value</variable><variable id="ILR9c!NypORnd4.z+$EZ">list</variable><variable id=",PaVJHFR{Ktwi:{,Cesj">sprite list</variable><variable id="YA.pi-~7Wx;(|6zHUw+}">text list</variable><variable id="Nx2?AVoN%7.*Zm=]Hpz%">projectile</variable><variable id="!+,NN|rj`sHW=+sTP-p+">picture</variable></variables><block type="pxt-on-start" x="-110" y="-370"><statement name="HANDLER"><block type="controls_repeat_ext"><value name="TIMES"><shadow type="math_whole_number"><field name="NUM">10</field></shadow></value><statement name="DO"><block type="variables_set"><field name="VAR" id="T*]g|{o1*Z#X(F?/Hcf9">healthy</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow><block type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . 7 7 7 7 7 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></block></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value></block></statement><next><block type="tilemap_editor"><field name="tilemap">tiles.createTilemap(
+            hex`10001000010606060606060606030000000000000508080808080808080a0000000000000508080808080808080a0000000000000508080808080808080a0000000000000508080808080808080a0000000000000508080808080808080a00000000000004090909090909090902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`,
+            img`
+2 2 2 2 2 2 2 2 2 2 2 . . . . . 
+2 . . . . . . . . . 2 . . . . . 
+2 . . . . . . . . . 2 . . . . . 
+2 . . . . . . . . . 2 . . . . . 
+2 . . . . . . . . . 2 . . . . . 
+2 . . . . . . . . . 2 . . . . . 
+2 . . . . . . . . . 2 . . . . . 
+2 2 2 2 2 2 2 2 2 2 2 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`,
+            [myTiles.tile0,sprites.castle.tilePath1,sprites.castle.tilePath9,sprites.castle.tilePath3,sprites.castle.tilePath7,sprites.castle.tilePath4,sprites.castle.tilePath2,sprites.castle.tileGrass3,sprites.castle.tilePath5,sprites.castle.tilePath8,sprites.castle.tilePath6],
+            TileScale.Sixteen
+        )</field><next><block type="variables_set"><field name="VAR" id="OrVfNoUO9A^HJbPxTTj~">infected</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . 2 2 2 2 2 . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Projectile</field></shadow></value></block></value></block></next></block></next></block></statement></block><block type="keyonevent" x="810" y="10"><field name="button">controller.A</field><field name="event">ControllerButtonEvent.Pressed</field><statement name="HANDLER"><block type="pxt_controls_for_of"><value name="VAR"><shadow type="variables_get_reporter"><field name="VAR" id="T*]g|{o1*Z#X(F?/Hcf9">healthy</field></shadow></value><value name="LIST"><shadow type="variables_get"><field name="VAR" id="ILR9c!NypORnd4.z+$EZ">list</field></shadow><block type="allOfKind"><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value><statement name="DO"><block type="spritesetpos"><value name="sprite"><block type="variables_get"><field name="VAR" id="T*]g|{o1*Z#X(F?/Hcf9">healthy</field></block></value><value name="x"><shadow type="positionPicker"><field name="index">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">3</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">10</field></shadow><block type="scenescreenwidth"/></value></block></value><value name="y"><shadow type="positionPicker"><field name="index">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">3</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">10</field></shadow><block type="scenescreenheight"/></value></block></value><next><block type="spritesetvel"><value name="sprite"><block type="variables_get"><field name="VAR" id="T*]g|{o1*Z#X(F?/Hcf9">healthy</field></block></value><value name="vx"><shadow type="spriteSpeedPicker"><field name="speed">50</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker"><field name="speed">50</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.BounceOnWall</field><value name="sprite"><block type="variables_get"><field name="VAR" id="T*]g|{o1*Z#X(F?/Hcf9">healthy</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">true</field></shadow></value><next><block type="spritesetpos"><value name="sprite"><block type="variables_get"><field name="VAR" id="OrVfNoUO9A^HJbPxTTj~">infected</field></block></value><value name="x"><shadow type="positionPicker"><field name="index">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">3</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">10</field></shadow><block type="scenescreenwidth"/></value></block></value><value name="y"><shadow type="positionPicker"><field name="index">0</field></shadow><block type="device_random"><value name="min"><shadow type="math_number"><field name="NUM">3</field></shadow></value><value name="limit"><shadow type="math_number"><field name="NUM">10</field></shadow><block type="scenescreenheight"/></value></block></value><next><block type="spritesetvel"><value name="sprite"><block type="variables_get"><field name="VAR" id="OrVfNoUO9A^HJbPxTTj~">infected</field></block></value><value name="vx"><shadow type="spriteSpeedPicker"><field name="speed">50</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker"><field name="speed">50</field></shadow></value><next><block type="spritesetsetflag"><field name="flag">SpriteFlag.BounceOnWall</field><value name="sprite"><block type="variables_get"><field name="VAR" id="OrVfNoUO9A^HJbPxTTj~">infected</field></block></value><value name="on"><shadow type="toggleOnOff"><field name="on">true</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></statement></block></statement></block></xml>
