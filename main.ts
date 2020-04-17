@@ -92,3 +92,9 @@ infected = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Projectile)
+game.onUpdate(function () {
+    if (infected.overlapsWith(healthy)) {
+        healthy.destroy()
+        healthy.vx += 100
+    }
+})
