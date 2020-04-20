@@ -1,7 +1,9 @@
 {
     "name": "Covidsimulator",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "animation": "*",
+        "palette": "*"
     },
     "description": "",
     "files": [

@@ -1,3 +1,9 @@
+enum ActionKind {
+    Walking,
+    Idle,
+    Jumping,
+    sick
+}
 namespace myTiles {
     //% blockIdentity=images._tile
     export const tile0 = img`
@@ -19,6 +25,35 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `
 }
+function moveInfect () {
+	
+}
+function changeToSick () {
+    healthy.setKind(SpriteKind.Projectile)
+}
+function clearHealthy () {
+    healthy.destroy()
+}
+function generateHealthy () {
+    healthy = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . 7 7 7 7 . . . . . 
+. . . . . . . 7 7 7 7 . . . . . 
+. . . . . . . 7 7 7 7 . . . . . 
+. . . . . . . 7 7 7 7 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Player)
+}
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     for (let healthy of sprites.allOfKind(SpriteKind.Player)) {
         healthy.setPosition(Math.randomRange(3, scene.screenWidth()), Math.randomRange(3, scene.screenHeight()))
@@ -29,28 +64,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         infected.setFlag(SpriteFlag.BounceOnWall, true)
     }
 })
-let infected: Sprite = null
 let healthy: Sprite = null
-for (let index = 0; index < 10; index++) {
-    healthy = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . 7 7 7 7 7 . . . . . . 
-. . . . . 7 7 7 7 7 . . . . . . 
-. . . . . 7 7 7 7 7 . . . . . . 
-. . . . . 7 7 7 7 7 . . . . . . 
-. . . . . 7 7 7 7 7 . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Player)
-}
+let infected: Sprite = null
+generateHealthy()
+generateHealthy()
+generateHealthy()
+generateHealthy()
+generateHealthy()
 tiles.setTilemap(tiles.createTilemap(
             hex`10001000010606060606060606030000000000000508080808080808080a0000000000000508080808080808080a0000000000000508080808080808080a0000000000000508080808080808080a0000000000000508080808080808080a00000000000004090909090909090902000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`,
             img`
@@ -92,9 +112,29 @@ infected = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Projectile)
+infected.setPosition(17, 14)
 game.onUpdate(function () {
-    if (infected.overlapsWith(healthy)) {
-        healthy.destroy()
-        healthy.vx += 100
+	
+})
+forever(function () {
+    if (healthy.overlapsWith(infected)) {
+        healthy.setImage(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . 2 2 2 2 2 . . . . . 
+. . . . . . 2 2 2 2 2 . . . . . 
+. . . . . . 2 2 2 2 2 . . . . . 
+. . . . . . 2 2 2 2 2 . . . . . 
+. . . . . . 2 2 2 2 2 . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`)
     }
 })
